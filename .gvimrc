@@ -1,10 +1,9 @@
 " ==================================================================
 " File:         $HOME/_gvimrc  (sourced by ~USER/.gvimrc)
-" Version:	1.6.7
-" Updated:	November 28, 2013
+" Last Updated:	09-MAY-2014
 " Purpose:      *Personal* Setup file for GVim -
 "               the GUI version of the editor Vim (Vi IMproved)
-" Intended OS:	Ubuntu or Windows
+" Intended OS:	Ubuntu 
 " Author:       Lance Alligood (lalligood@gmail.com) 
 " Website:      <URL:http://cdspoolrocket.info/>
 " ================================================================== 
@@ -46,7 +45,9 @@ set hlsearch
 set spell spelllang=en_us
 " enable & set to color scheme of choice
 syntax on
-colorscheme manxome
+" use favorite color scheme
+"colorscheme manxome
+colorscheme vividchalk
 " disable creation/saving of backups
 set nobackup
 " turn off GUI toolbar at the top of the window

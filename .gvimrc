@@ -1,63 +1,47 @@
 " ==================================================================
-" File:         $HOME/_gvimrc  (sourced by ~USER/.gvimrc)
-" Last Updated:	09-MAY-2014
-" Purpose:      *Personal* Setup file for GVim -
-"               the GUI version of the editor Vim (Vi IMproved)
-" Intended OS:	Ubuntu 
-" Author:       Lance Alligood (lalligood@gmail.com) 
-" Website:      <URL:http://cdspoolrocket.info/>
+" .gvimrc for Lance Alligood          
 " ================================================================== 
-
-" Enable formatting for any Arduino sketch files
-au BufNewFile,BufRead *.pde setf arduino
 
 " ==================================================================
 " PERSONAL SETTINGS
 " ==================================================================
 
-" set font
-if has("gui_gtk2")
-      set guifont=LiberationMono\ 10
-  elseif has("gui_win32")
-      set guifont=Lucida_Console:h9
-  end
-"set guifont=Terminal:h9
-" or Lucida Console with a height of 9 pixels
-"set guifont=Lucida_Console:h9
+" set font & color scheme
+set guifont=LiberationMono\ 10
+colorscheme vividchalk
+" set window size to 100 columns wide x 50 lines
+set columns=100 lines=50 
 " turn on smart indent feature
 set smartindent
-" set indent to 2 pixels
-set shiftwidth=2
-" set window to 100 columns/chars wide & 50 lines tall
-set columns=100 lines=50 
+" set indent to 4 spaces
+set shiftwidth=4
 " turn on line numbers
 set number
 " turn on word wrap
 set lbr
-" turn off case sensitive searches
-set ignorecase
-" however, if you sometimes want to look for capitalized words,
-" you will need
-set smartcase
 " highlight search strings
 set hlsearch
 " enable spell check
 set spell spelllang=en_us
-" enable & set to color scheme of choice
+" enable syntax highlighting
 syntax on
-" use favorite color scheme
-"colorscheme manxome
-colorscheme vividchalk
+" enable ruler in bottom-right corner
+set ruler
+" Enable syntax highlighting for any Arduino sketch files
+au BufNewFile,BufRead *.pde setf arduino
 " disable creation/saving of backups
 set nobackup
-" turn off GUI toolbar at the top of the window
+" turn off GUI toolbar at the top of the window by default but with custom 
+" keymapping below, it can be toggled with <Ctrl>-<F2>
 set guioptions=m
+" Set Blowfish for encryption algorithm
+set cm=blowfish
 
 " ==================================================================
-" GENERAL VIM PERSONAL KEYMAPPINGS
+" PERSONAL KEYMAPPINGS
 " ==================================================================
 
-" <Ctrl>+<Alt>+T to place each open file into its own tab
+" <Ctrl>+<Shift>+T to place each open file into its own tab
 map <C-S-t> <Esc>:tab ball<CR>
 " <Ctrl> + T to open a new tab
 map <C-t> <Esc>:tabnew<CR>
@@ -68,7 +52,7 @@ map <C-Tab> <Esc>gt
 " <Ctrl>+<Shift>+<Tab> to go to previous tab
 map <C-S-Tab> <Esc>:tabp<CR>
 " Turn spell check On or Off
-map <F4> :set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
+map <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 " Go to next misspelled word
 map <F5> <Esc>]s
 " Go to previous misspelled word
@@ -81,12 +65,12 @@ map <A-n> <Esc>:bn<CR>
 map <A-p> <Esc>:bp<CR>
 " Allows you to make menu & toolbar appear/disappear
 map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
-                         \set guioptions-=T <Bar>
-                         \set guioptions-=m <bar>
-                    \else <Bar>
-                         \set guioptions+=T <Bar>
-                         \set guioptions+=m <Bar>
-                    \endif<CR>
+	\set guioptions-=T <Bar>
+	\set guioptions-=m <bar>
+    \else <Bar>
+	\set guioptions+=T <Bar>
+	\set guioptions+=m <Bar>
+    \endif<CR>
 " This changes default behavior of arrow keys for easier navigation with
 " long lines (paragraphs)
 nnoremap <Down> gj
@@ -95,4 +79,3 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
-

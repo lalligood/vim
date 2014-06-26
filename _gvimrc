@@ -1,55 +1,39 @@
 " ==================================================================
-" File:         $HOME/_gvimrc  (sourced by ~USER/.gvimrc)
-" Version:	1.6.5
-" Updated:	January 25, 2013
-" Purpose:      *Personal* Setup file for GVim -
-"               the GUI version of the editor Vim (Vi IMproved)
-" Intended OS:	Microsoft Windows XP/Vista/7
+" File:         $HOME/_gvimrc - Personal settings for GVim
+" Intended OS:	Microsoft Windows
 " Author:       Lance Alligood (lalligood@gmail.com) 
-" Website:      <URL:http://cdspoolrocket.info/>
 " ================================================================== 
-
-" Enable formatting for any Arduino sketch files
-au BufNewFile,BufRead *.pde setf arduino
 
 " ==================================================================
 " PERSONAL SETTINGS
 " ==================================================================
 
-" set font
-" either to Terminal with a height of 9 pixels
-"set guifont=Terminal:h9
-" or Lucida Console with a height of 9 pixels
+" enable syntax highlighting & set desired color scheme
+syntax on
+colorscheme vividchalk
+" set font to Lucida Console with a height of 9 pixels
 set guifont=Lucida_Console:h9
-" turn on smart indent feature
-set smartindent
-" set indent to 2 pixels
-set shiftwidth=2
 " set window to 100 columns/chars wide & 50 lines tall
 set columns=100 lines=50 
 " turn on line numbers
 set number
+" turn on smart indent feature
+set smartindent
+" set indent to 4 pixels
+set shiftwidth=4
 " turn on word wrap
 set lbr
-" turn off case sensitive searches
-set ignorecase
-" however, if you sometimes want to look for capitalized words,
-" you will need
-set smartcase
 " highlight search strings
 set hlsearch
 " enable spell check
 set spell spelllang=en_us
-" enable & set to color scheme of choice
-syntax on
-colorscheme manxome
 " disable creation/saving of backups
 set nobackup
-" turn off GUI toolbar at the top of the window
-" set guioptions=m
+" allows you to make menu & toolbar appear/disappear
+map <silent> <C-F2> :if &guioptions =~# 'T' <Bar> set guioptions-=T <Bar> set guioptions-=m <Bar> else <Bar> set guioptions+=T <Bar> set guioptions+=m <Bar> endif<CR>
 
 " ==================================================================
-" GENERAL VIM PERSONAL KEYMAPPINGS
+" PERSONAL KEYMAPPINGS
 " ==================================================================
 
 " <Ctrl>+<Alt>+T to place each open file into its own tab
@@ -74,14 +58,6 @@ map <F7> <Esc>z=
 map <A-n> <Esc>:bn<CR>
 " Jump to previous file in buffer
 map <A-p> <Esc>:bp<CR>
-" Allows you to make menu & toolbar appear/disappear
-map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
-                         \set guioptions-=T <Bar>
-                         \set guioptions-=m <bar>
-                    \else <Bar>
-                         \set guioptions+=T <Bar>
-                         \set guioptions+=m <Bar>
-                    \endif<CR>
 " This changes default behavior of arrow keys for easier navigation with
 " long lines (paragraphs)
 nnoremap <Down> gj
@@ -90,4 +66,5 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
-
+" Turn a text string into a properly formed XML tag
+map <C-x> byWi<<Esc>A></<Esc>pA><Esc>

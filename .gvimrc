@@ -41,6 +41,8 @@ set cm=blowfish
 " PERSONAL KEYMAPPINGS
 " ==================================================================
 
+" Turn ability to paste with or without leading tabs/spaces
+set pastetoggle=<F3>
 " <Ctrl>+<Shift>+T to place each open file into its own tab
 map <C-S-t> <Esc>:tab ball<CR>
 " <Ctrl> + T to open a new tab

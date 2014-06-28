@@ -37,7 +37,7 @@ set cm=blowfish
 " ==================================================================
 
 " Turn ability to paste with or without leading tabs/spaces
-set pastetoggle=<F2>
+set pastetoggle=<F3>
 " Turn spell check On or Off
 map <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 " Go to next misspelled word

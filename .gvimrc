@@ -27,15 +27,16 @@ set spell spelllang=en_us
 syntax on
 " enable ruler in bottom-right corner
 set ruler
-" Enable syntax highlighting for any Arduino sketch files
-au BufNewFile,BufRead *.pde setf arduino
 " disable creation/saving of backups
 set nobackup
-" turn off GUI toolbar at the top of the window by default but with custom 
+" turn off GUI toolbar at the top of the window by default but with custom
 " keymapping below, it can be toggled with <Ctrl>-<F2>
 set guioptions=m
 " Set Blowfish for encryption algorithm
 set cm=blowfish
+" Enable syntax highlighting for any Arduino sketch files
+" arduino.vim needs to reside in ~/.vim/syntax/
+au BufNewFile,BufRead *.pde setf arduino
 
 " ==================================================================
 " PERSONAL KEYMAPPINGS

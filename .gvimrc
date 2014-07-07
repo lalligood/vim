@@ -82,3 +82,8 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
+" Jump between split windows with <Ctrl>+<Alt>+H/J/K/L
+nnoremap <C-S-j> <C-W><C-J>
+nnoremap <C-S-k> <C-W><C-K>
+nnoremap <C-S-l> <C-W><C-L>
+nnoremap <C-S-h> <C-W><C-H>

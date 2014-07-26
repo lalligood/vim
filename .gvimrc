@@ -10,11 +10,11 @@
 set guifont=LiberationMono\ 10
 colorscheme vividchalk
 " set window size to 100 columns wide x 50 lines
-set columns=100 lines=50 
+set columns=80 lines=50 
 " turn on smart indent feature
 set smartindent
 " set indent to 4 spaces
-set shiftwidth=4
+set shiftwidth=4 tabstop=4 softtabstop=4
 " turn on line numbers
 set number
 " turn on word wrap

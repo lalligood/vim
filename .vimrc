@@ -12,7 +12,7 @@ colorscheme colorful256
 " turn on smart indent feature
 set smartindent
 " set indent to 4 spaces
-set shiftwidth=4
+set shiftwidth=4 tabstop=4 softtabstop=4
 " turn on line numbers
 set number
 " turn on word wrap

@@ -1,47 +1,48 @@
 " ==================================================================
-" File:         $HOME/_gvimrc - Personal settings for GVim
-" Intended OS:	Microsoft Windows
-" Author:       Lance Alligood (lalligood@gmail.com) 
+" _gvimrc for Lance Alligood (lalligood@gmail.com) 
 " ================================================================== 
 
 " ==================================================================
 " PERSONAL SETTINGS
 " ==================================================================
 
-" enable syntax highlighting & set desired color scheme
+" enable syntax highlighting 
 syntax on
+" set desired color scheme
 colorscheme vividchalk
 " set font to Lucida Console with a height of 9 pixels
 set guifont=Lucida_Console:h9
-" set window to 100 columns/chars wide & 50 lines tall
-set columns=100 lines=50 
-" turn on line numbers
-set number
+" set window size to 80 columns wide x 50 lines
+set columns=80 lines=50 
 " turn on smart indent feature
 set smartindent
 " set indent to 4 pixels
-set shiftwidth=4
+set shiftwidth=4 tabstop=4 softtabstop=4
+" turn on line numbers
+set number
 " turn on word wrap
 set lbr
 " highlight search strings
 set hlsearch
 " enable spell check
 set spell spelllang=en_us
+" enable ruler in bottom-right corner
+set ruler
 " disable creation/saving of backups
 set nobackup
-" disable menu bar & toolbar
+" disable menu & toolbar
 set guioptions-=m
 set guioptions-=T
-" allows you to make menu & toolbar appear/disappear
-map <silent> <C-F2> :if &guioptions =~# 'T' <Bar> set guioptions-=T <Bar> set guioptions-=m <Bar> else <Bar> set guioptions+=T <Bar> set guioptions+=m <Bar> endif<CR>
 
 " ==================================================================
 " PERSONAL KEYMAPPINGS
 " ==================================================================
 
-" <Ctrl>+<Alt>+T to place each open file into its own tab
+" enable/disable ability to paste with/without leading spaces
+set pastetoggle=<F3>
+" <Ctrl>+<Shift>+T to place each open file into its own tab
 map <C-S-t> <Esc>:tab ball<CR>
-" <Ctrl> + T to open a new tab
+" <Ctrl>+T to open a new tab
 map <C-t> <Esc>:tabnew<CR>
 " <Ctrl>+<F4> to close window/tab
 map <C-F4> <Esc>:close<CR>
@@ -50,7 +51,7 @@ map <C-Tab> <Esc>gt
 " <Ctrl>+<Shift>+<Tab> to go to previous tab
 map <C-S-Tab> <Esc>:tabp<CR>
 " Turn spell check On or Off
-map <F4> :set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
+map <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 " Go to next misspelled word
 map <F5> <Esc>]s
 " Go to previous misspelled word
@@ -61,6 +62,14 @@ map <F7> <Esc>z=
 map <A-n> <Esc>:bn<CR>
 " Jump to previous file in buffer
 map <A-p> <Esc>:bp<CR>
+" allows you to make menu & toolbar appear/disappear
+map <silent> <C-F2> :if &guioptions =~# 'T' <Bar> 
+	\set guioptions-=T <Bar>
+	\set guioptions-=m <Bar>
+	\else <Bar>
+	\set guioptions+=T <Bar>
+	\set guioptions+=m <Bar>
+	\endif<CR>
 " This changes default behavior of arrow keys for easier navigation with
 " long lines (paragraphs)
 nnoremap <Down> gj

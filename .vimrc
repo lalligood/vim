@@ -6,8 +6,9 @@
 " PERSONAL SETTINGS
 " ==================================================================
 
+" enable syntax highlighting
+syntax on
 " set color scheme
-"set background=dark
 colorscheme colorful256
 " turn on smart indent feature
 set smartindent
@@ -21,8 +22,6 @@ set lbr
 set hlsearch
 " enable spell check
 set spell spelllang=en_us
-" enable syntax highlighting
-syntax on
 " enable ruler in bottom-right corner
 set ruler
 " disable creation/saving of backups

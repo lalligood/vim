@@ -36,6 +36,7 @@ set cm=blowfish
 " Enable syntax highlighting for any Arduino sketch files
 " arduino.vim needs to reside in ~/.vim/syntax/
 au BufNewFile,BufRead *.pde setf arduino
+au BufNewFile,BufRead *.ino setf arduino
 
 " ==================================================================
 " PERSONAL KEYMAPPINGS

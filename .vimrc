@@ -6,26 +6,27 @@
 " PERSONAL SETTINGS
 " ==================================================================
 
-" enable syntax highlighting
+" Enable syntax highlighting
 syntax on
-" set color scheme
+" Set color scheme
 colorscheme colorful256
-" turn on smart indent feature
+" Turn on smart indent feature
 set smartindent
-" set indent to 4 spaces
+" Set indent to 4 spaces
 set shiftwidth=4 tabstop=4 softtabstop=4
-" turn on line numbers
+" Turn on line numbers
 set number
-" turn on word wrap
+" Turn on word wrap
 set lbr
-" highlight search strings
+" Highlight search strings
 set hlsearch
-" enable spell check
+" Enable spell check
 set spell spelllang=en_us
-" enable ruler in bottom-right corner
+" Enable ruler in bottom-right corner
 set ruler
-" disable creation/saving of backups
+" Disable creation/saving of backups & swapfile
 set nobackup
+set noswapfile
 " Set Blowfish for encryption algorithm
 set cm=blowfish
 " Enable syntax highlighting for any Arduino sketch files
@@ -37,10 +38,23 @@ au BufNewFile,BufRead *.ino setf arduino
 " PERSONAL KEYMAPPINGS
 " ==================================================================
 
+" Enable <Tab> as leader
+let mapleader = "\<Tab>"
+" Close window
+nnoremap K :q<CR>
+" Turn diff off
+nnoremap <leader>D :diffoff!<CR>
+" Turn off search result highlights
+nnoremap <silent> <leader><space> :noh<CR>:call clearmatches()<CR>
+" Move search results into the middle of the screen
+nnoremap n nzzzv
+nnoremap N Nzzzv
 " Turn ability to paste with or without leading tabs/spaces
 set pastetoggle=<F3>
 " Turn spell check On or Off
 map <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
+" Clean any trailing whitespace
+nnoremap <leader>ww mz:%s/\s\+$//<CR>:let @/=''<CR>z
 " Go to next misspelled word
 map <F5> <Esc>]s
 " Go to previous misspelled word
@@ -59,3 +73,11 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
+" Faster splits
+nnoremap <leader>v <C-w>v
+nnoremap <leader>s <C-w>s
+" Faster navigation between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l

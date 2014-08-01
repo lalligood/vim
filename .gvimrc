@@ -27,8 +27,9 @@ set hlsearch
 set spell spelllang=en_us
 " enable ruler in bottom-right corner
 set ruler
-" disable creation/saving of backups
+" disable creation/saving of backups & swapfile
 set nobackup
+set noswapfile
 " disable menu & toolbar at top
 set guioptions=m
 " Set Blowfish for encryption algorithm
@@ -42,18 +43,31 @@ au BufNewFile,BufRead *.ino setf arduino
 " PERSONAL KEYMAPPINGS
 " ==================================================================
 
-" enable/disable ability to paste with/without leading spaces
+" Enable <Tab> as leader
+let mapleader = "\<Tab>"
+" Close window
+nnoremap K :q<CR>
+" Turn diff off
+nnoremap <leader>D :diffoff!<CR>
+" Turn off search result highlights
+nnoremap <silent> <leader><space> :noh<CR>:call clearmatches()<CR>
+" Move search results into the middle of the screen
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" Enable/disable ability to paste with/without leading spaces
 set pastetoggle=<F3>
-" <Ctrl>+<Shift>+T to place each open file into its own tab
-map <C-S-t> <Esc>:tab ball<CR>
-" <Ctrl>+T to open a new tab
-map <C-t> <Esc>:tabnew<CR>
-" <Ctrl>+<F4> to close window/tab
-map <C-F4> <Esc>:close<CR>
-" <Ctrl>+<Tab> to go to next tab
-map <C-Tab> <Esc>gt
-" <Ctrl>+<Shift>+<Tab> to go to previous tab
-map <C-S-Tab> <Esc>:tabp<CR>
+" Clean any trailing whitespace
+nnoremap <leader>ww mz:%s/\s\+$//<CR>:let @/=''<CR>z
+" Place each open file into its own tab
+nnoremap <leader>tt :tab ball<CR>
+" Open a new tab
+nnoremap <leader>nn :tabnew<CR>
+" Close window/tab
+nnoremap <leader>qq :close<CR>
+" Jump to next tab
+nnoremap <leader>l gt
+" Jump to previous tab
+nnoremap <leader>h :tabp<CR>
 " Turn spell check On or Off
 map <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 " Go to next misspelled word
@@ -63,9 +77,9 @@ map <F6> <Esc>[s
 " Display correct spelling suggestions
 map <F7> <Esc>z=
 " Jump to next file in buffer
-map <A-n> <Esc>:bn<CR>
+nnoremap <leader>j :bn<CR>
 " Jump to previous file in buffer
-map <A-p> <Esc>:bp<CR>
+nnoremap <leader>k :bp<CR>
 " Allows you to make menu & toolbar appear/disappear
 map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
 	\set guioptions-=T <Bar>
@@ -82,3 +96,11 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
+" Faster splits
+nnoremap <leader>v <C-w>v
+nnoremap <leader>s <C-w>s
+" Faster navigation between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l

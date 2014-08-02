@@ -1,39 +1,46 @@
 " ==================================================================
 " .gvimrc for Lance Alligood (lalligood@gmail.com)
-" ================================================================== 
+" ==================================================================
 
 " ==================================================================
 " PERSONAL SETTINGS
 " ==================================================================
 
-" enable syntax highlighting
+" Enable syntax highlighting
 syntax on
-" set font & color scheme
+" Set font & color scheme
 set guifont=LiberationMono\ 10
 colorscheme vividchalk
-" set window size to 80 columns wide x 50 lines
-set columns=80 lines=50 
-" turn on smart indent feature
+" Set window size to 80 columns x 50 lines
+set columns=80 lines=50
+" Turn on smart indent feature
 set smartindent
-" set indent to 4 spaces
+" Set indent to 4 spaces
 set shiftwidth=4 tabstop=4 softtabstop=4
-" turn on line numbers
+" Turn on line numbers & relative numbers
 set number
-" turn on word wrap
+" Turn on word wrap
 set lbr
-" highlight search strings
+" Highlight search strings
 set hlsearch
-" enable spell check
+" Enable spell check
 set spell spelllang=en_us
-" enable ruler in bottom-right corner
+" Enable ruler in bottom-right corner
 set ruler
-" disable creation/saving of backups & swapfile
+" Disable backup files
 set nobackup
+" Disable swapfile
 set noswapfile
-" disable menu & toolbar at top
-set guioptions=m
+" Disable menu & toolbar at top
+set guioptions-=m
+set guioptions-=T
 " Set Blowfish for encryption algorithm
 set cm=blowfish
+
+" ==================================================================
+" FILE SYNTAX HIGHLIGHTING
+" ==================================================================
+
 " Enable syntax highlighting for any Arduino sketch files
 " arduino.vim needs to reside in ~/.vim/syntax/
 au BufNewFile,BufRead *.pde setf arduino
@@ -61,7 +68,7 @@ nnoremap <leader>ww mz:%s/\s\+$//<CR>:let @/=''<CR>z
 " Place each open file into its own tab
 nnoremap <leader>tt :tab ball<CR>
 " Open a new tab
-nnoremap <leader>nn :tabnew<CR>
+nnoremap <leader>nt :tabnew<CR>
 " Close window/tab
 nnoremap <leader>qq :close<CR>
 " Jump to next tab
@@ -69,18 +76,18 @@ nnoremap <leader>l gt
 " Jump to previous tab
 nnoremap <leader>h :tabp<CR>
 " Turn spell check On or Off
-map <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
+noremap <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 " Go to next misspelled word
-map <F5> <Esc>]s
+nnoremap <F5> <Esc>]s
 " Go to previous misspelled word
-map <F6> <Esc>[s
+nnoremap <F6> <Esc>[s
 " Display correct spelling suggestions
-map <F7> <Esc>z=
+nnoremap <F7> <Esc>z=
 " Jump to next file in buffer
 nnoremap <leader>j :bn<CR>
 " Jump to previous file in buffer
 nnoremap <leader>k :bp<CR>
-" Allows you to make menu & toolbar appear/disappear
+" Make menu & toolbar appear/disappear
 map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
 	\set guioptions-=T <Bar>
 	\set guioptions-=m <bar>

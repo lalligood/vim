@@ -1,5 +1,5 @@
 " ==================================================================
-" .vimrc for Lance Alligood
+" .vimrc for Lance Alligood (lalligood@gmail.com)
 " ================================================================== 
 
 " ==================================================================
@@ -24,11 +24,17 @@ set hlsearch
 set spell spelllang=en_us
 " Enable ruler in bottom-right corner
 set ruler
-" Disable creation/saving of backups & swapfile
+" Disable backup files
 set nobackup
+" Disable swapfile
 set noswapfile
 " Set Blowfish for encryption algorithm
 set cm=blowfish
+
+" ==================================================================
+" FILE SYNTAX HIGHLIGHTING
+" ==================================================================
+
 " Enable syntax highlighting for any Arduino sketch files
 " arduino.vim needs to reside in ~/.vim/syntax/
 au BufNewFile,BufRead *.pde setf arduino
@@ -51,20 +57,20 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 " Turn ability to paste with or without leading tabs/spaces
 set pastetoggle=<F3>
-" Turn spell check On or Off
-map <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 " Clean any trailing whitespace
 nnoremap <leader>ww mz:%s/\s\+$//<CR>:let @/=''<CR>z
+" Turn spell check On or Off
+nnoremap <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 " Go to next misspelled word
-map <F5> <Esc>]s
+noremap <F5> <Esc>]s
 " Go to previous misspelled word
-map <F6> <Esc>[s
+noremap <F6> <Esc>[s
 " Display correct spelling suggestions
-map <F7> <Esc>z=
+noremap <F7> <Esc>z=
 " Jump to next file in buffer
-map <A-n> <Esc>:bn<CR>
+noremap <leader>j :bn<CR>
 " Jump to previous file in buffer
-map <A-p> <Esc>:bp<CR>
+map <leader>k :bp<CR>
 " This changes default behavior of arrow keys for easier navigation with
 " long lines (paragraphs)
 nnoremap <Down> gj

@@ -6,31 +6,30 @@
 " PERSONAL SETTINGS
 " ==================================================================
 
-" enable syntax highlighting 
+" Enable syntax highlighting
 syntax on
-" set desired color scheme
-colorscheme vividchalk
-" set font to Lucida Console with a height of 9 pixels
+" Set font & color scheme
 set guifont=Lucida_Console:h9
-" set window size to 80 columns wide x 50 lines
-set columns=80 lines=50 
-" turn on smart indent feature
+colorscheme vividchalk
+" Set window to 80 columns x 50 lines
+set columns=80 lines=50
+" Turn on smart indent feature
 set smartindent
-" set indent to 4 pixels
+" Make indents 4 spaces
 set shiftwidth=4 tabstop=4 softtabstop=4
-" turn on line numbers
-set number
-" turn on word wrap
+" Turn on line numbers & relative numbers
+set number relativenumber
+" Turn on word wrap
 set lbr
-" highlight search strings
+" Highlight search strings
 set hlsearch
-" enable spell check
+" Enable spell check
 set spell spelllang=en_us
-" enable ruler in bottom-right corner
-set ruler
-" disable creation/saving of backups
+" Disable backup files
 set nobackup
-" disable menu & toolbar
+" Disable swapfile
+set noswapfile
+" Disable menu bar & toolbar
 set guioptions-=m
 set guioptions-=T
 
@@ -38,38 +37,51 @@ set guioptions-=T
 " PERSONAL KEYMAPPINGS
 " ==================================================================
 
-" enable/disable ability to paste with/without leading spaces
+" Enable <Tab> as leader
+let mapleader = "\<Tab>"
+" Close window
+nnoremap K :q<CR>
+" Turn diff off
+nnoremap <leader>D :diffoff!<CR>
+" Turn off search result highlights
+nnoremap <silent> <leader><space> :noh<CR>:call clearmatches()<CR>
+" Move search results into the middle of the screen
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" Enable/disable ability to paste with/without leading spaces
 set pastetoggle=<F3>
-" <Ctrl>+<Shift>+T to place each open file into its own tab
-map <C-S-t> <Esc>:tab ball<CR>
-" <Ctrl>+T to open a new tab
-map <C-t> <Esc>:tabnew<CR>
-" <Ctrl>+<F4> to close window/tab
-map <C-F4> <Esc>:close<CR>
-" <Ctrl>+<Tab> to go to next tab
-map <C-Tab> <Esc>gt
-" <Ctrl>+<Shift>+<Tab> to go to previous tab
-map <C-S-Tab> <Esc>:tabp<CR>
-" Turn spell check On or Off
-map <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
+" Clean any trailing whitespace
+nnoremap <leader>ww mz:%s/\s\+$//<CR>:let @/=''<CR>z
+" Place each open file into its own tab
+nnoremap <leader>tt :tab ball<CR>
+" Open a new tab
+nnoremap <leader>nt :tabnew<CR>
+" Close window/tab
+nnoremap <leader>qq :close<CR>
+" Jump to next tab
+nnoremap <leader>l gt
+" Jump to previous tab
+nnoremap <leader>h :tabp<CR>
+" Turn spell check on or off
+nnoremap <F4> :set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 " Go to next misspelled word
-map <F5> <Esc>]s
-" Go to previous misspelled word
-map <F6> <Esc>[s
-" Display correct spelling suggestions
-map <F7> <Esc>z=
+nnoremap <F5> <Esc>]s
+" <F6> to go to previous misspelled word
+nnoremap <F6> <Esc>[s
+" <F7> to display correct spelling suggestions
+nnoremap <F7> <Esc>z=
 " Jump to next file in buffer
-map <A-n> <Esc>:bn<CR>
+nnoremap <leader>j :bn<CR>
 " Jump to previous file in buffer
-map <A-p> <Esc>:bp<CR>
-" allows you to make menu & toolbar appear/disappear
-map <silent> <C-F2> :if &guioptions =~# 'T' <Bar> 
+nnoremap <leader>k :bp<CR>
+" Make menu & toolbar appear/disappear
+map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
 	\set guioptions-=T <Bar>
-	\set guioptions-=m <Bar>
-	\else <Bar>
+	\set guioptions-=m <bar>
+    \else <Bar>
 	\set guioptions+=T <Bar>
 	\set guioptions+=m <Bar>
-	\endif<CR>
+    \endif<CR>
 " This changes default behavior of arrow keys for easier navigation with
 " long lines (paragraphs)
 nnoremap <Down> gj
@@ -78,10 +90,18 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
-" Jump between split windows with <Ctrl>+<Alt>+H/J/K/L
-nnoremap <C-S-j> <C-W><C-J>
-nnoremap <C-S-k> <C-W><C-K>
-nnoremap <C-S-l> <C-W><C-L>
-nnoremap <C-S-h> <C-W><C-H>
-" Turn a text string into a properly formed XML tag
-map <C-x> byWi<<Esc>A></<Esc>pA><Esc>
+" Faster splits
+nnoremap <leader>v <C-w>v
+nnoremap <leader>s <C-w>s
+" Faster navigation between splits
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
+
+" ==================================================================
+" PROFESSIONAL USE KEYMAPPINGS
+" ==================================================================
+
+" Convert word into a pair of properly formed XML tags
+nnoremap <C-x> byWi<<Esc>A></<Esc>pA><Esc>

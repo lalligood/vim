@@ -14,8 +14,8 @@ colorscheme colorful256
 set smartindent
 " Set indent to 4 spaces
 set shiftwidth=4 tabstop=4 softtabstop=4
-" Turn on line numbers
-set number
+" Turn on line numbers & relative numbers
+set number relativenumber
 " Turn on word wrap
 set lbr
 " Highlight search strings

@@ -14,14 +14,14 @@ colorscheme colorful256
 set smartindent
 " Set indent to 4 spaces
 set shiftwidth=4 tabstop=4 softtabstop=4
-" Turn on line numbers & relative numbers
-set number relativenumber
+" Turn on line numbers
+set number
 " Turn on word wrap
 set lbr
 " Highlight search strings
 set hlsearch
-" Enable spell check
-set spell spelllang=en_us
+" Enable spelling dictionary locale
+set spelllang=en_us
 " Enable ruler in bottom-right corner
 set ruler
 " Disable backup files
@@ -61,6 +61,8 @@ set pastetoggle=<F3>
 nnoremap <leader>ww mz:%s/\s\+$//<CR>:let @/=''<CR>z
 " Turn spell check On or Off
 nnoremap <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
+" Turn relativenumber on or off
+nnoremap <F1> :set relativenumber!<CR><Bar>:echo "Relative numbering: " . strpart("OffOn", 3 * &relativenumber, 3)<CR>
 " Go to next misspelled word
 noremap <F5> <Esc>]s
 " Go to previous misspelled word

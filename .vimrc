@@ -18,6 +18,10 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 set number
 " Turn on word wrap
 set lbr
+" Highlight column 80, useful when using large windows
+set colorcolumn=80
+" Highlight the current line
+set cursorline
 " Highlight search strings
 set hlsearch
 " Enable spelling dictionary locale

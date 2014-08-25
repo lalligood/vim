@@ -49,6 +49,7 @@ set cm=blowfish
 " arduino.vim needs to reside in ~/.vim/syntax/
 au BufNewFile,BufRead *.pde setf arduino
 au BufNewFile,BufRead *.ino setf arduino
+au BufNewFile,BufRead *.conf setf dosini
 
 " ==================================================================
 " PERSONAL KEYMAPPINGS

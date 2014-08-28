@@ -39,10 +39,11 @@ set cm=blowfish
 " FILE SYNTAX HIGHLIGHTING
 " ==================================================================
 
-" Enable syntax highlighting for any Arduino sketch files
-" arduino.vim needs to reside in ~/.vim/syntax/
+" Arduino sketch files - arduino.vim needs to reside in ~/.vim/syntax/
 au BufNewFile,BufRead *.pde setf arduino
 au BufNewFile,BufRead *.ino setf arduino
+" Linux configuration files
+au BufNewFile,BufRead *.conf setf dosini
 
 " ==================================================================
 " PERSONAL KEYMAPPINGS

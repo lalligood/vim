@@ -33,6 +33,8 @@ set spelllang=en_us
 set nobackup
 " Disable swapfile
 set noswapfile
+" Save as *nix file format
+set ff=unix
 " Disable menu bar & toolbar
 set guioptions-=m
 set guioptions-=T

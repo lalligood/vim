@@ -16,11 +16,20 @@ set columns=80 lines=50
 " Turn on smart indent feature
 set smartindent
 " Set indent to 4 spaces
-set shiftwidth=4 tabstop=4 softtabstop=4
+set shiftwidth=4
+" DO NOT UNCOMMENT THE FOLLOWING LINE UNLESS YOU WANT TO USE TABS INSTEAD OF
+" SPACES FOR INDENTS!!!
+"set tabstop=4
+" Alter backspace behavior to treat indent spaces like tabs
+set softtabstop=4
+" Change tabs into spaces
+set expandtab
 " Turn on line numbers
 set number
-" Turn on word wrap
-set lbr
+" Turn on visual word wrap at the end of a word...
+set wrap linebreak
+" ...but disable wrapping onto a new line
+set formatoptions-=t
 " Highlight column 80, useful when using large windows
 set colorcolumn=80
 " Highlight the current line
@@ -35,7 +44,7 @@ set ruler
 set nobackup
 " Disable swapfile
 set noswapfile
-" Disable menu & toolbar at top
+" Disable/hide menu & toolbar at top of window
 set guioptions-=m
 set guioptions-=T
 " Set Blowfish for encryption algorithm
@@ -83,7 +92,7 @@ nnoremap <leader>l gt
 " Jump to previous tab
 nnoremap <leader>h :tabp<CR>
 " Turn spell check On or Off
-noremap <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
+nnoremap <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 " Turn relativenumber on or off
 nnoremap <F1> :set relativenumber!<CR><Bar>:echo "Relative numbering: " . strpart("OffOn", 3 * &relativenumber, 3)<CR>
 " Go to next misspelled word

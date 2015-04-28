@@ -13,11 +13,20 @@ colorscheme colorful256
 " Turn on smart indent feature
 set smartindent
 " Set indent to 4 spaces
-set shiftwidth=4 tabstop=4 softtabstop=4
+set shiftwidth=4
+" DO NOT UNCOMMENT THE FOLLOWING LINE UNLESS YOU WANT TO USE TABS INSTEAD OF
+" SPACES FOR INDENTS!!!
+"set tabstop=4
+" Alter backspace behavior to treat indent spaces like tabs
+set softtabstop=4
+" Change tabs into spaces
+set expandtab
 " Turn on line numbers
 set number
-" Turn on word wrap
-set lbr
+" Turn on visual word wrap at the end of a word...
+set wrap linebreak
+" ...but disable wrapping onto a new line
+set formatoptions-=t
 " Highlight column 80, useful when using large windows
 set colorcolumn=80
 " Highlight the current line
@@ -62,7 +71,7 @@ nnoremap <silent> <leader><space> :noh<CR>:call clearmatches()<CR>
 " Move search results into the middle of the screen
 nnoremap n nzzzv
 nnoremap N Nzzzv
-" Turn ability to paste with or without leading tabs/spaces
+" Enable/disable ability to paste with/without leading spaces
 set pastetoggle=<F3>
 " Clean any trailing whitespace
 nnoremap <leader>ww mz:%s/\s\+$//<CR>:let @/=''<CR>z
@@ -71,15 +80,15 @@ nnoremap <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 
 " Turn relativenumber on or off
 nnoremap <F1> :set relativenumber!<CR><Bar>:echo "Relative numbering: " . strpart("OffOn", 3 * &relativenumber, 3)<CR>
 " Go to next misspelled word
-noremap <F5> <Esc>]s
+nnoremap <F5> <Esc>]s
 " Go to previous misspelled word
-noremap <F6> <Esc>[s
+nnoremap <F6> <Esc>[s
 " Display correct spelling suggestions
-noremap <F7> <Esc>z=
+nnoremap <F7> <Esc>z=
 " Jump to next file in buffer
-noremap <leader>j :bn<CR>
+nnoremap <leader>j :bn<CR>
 " Jump to previous file in buffer
-map <leader>k :bp<CR>
+nnoremap <leader>k :bp<CR>
 " This changes default behavior of arrow keys for easier navigation with
 " long lines (paragraphs)
 nnoremap <Down> gj

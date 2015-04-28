@@ -11,16 +11,25 @@ syntax on
 " Set font & color scheme
 set guifont=Lucida_Console:h9
 colorscheme vividchalk
-" Set window to 80 columns x 50 lines
+" Set window size to 80 columns x 50 lines
 set columns=80 lines=50
 " Turn on smart indent feature
 set smartindent
-" Make indents 4 spaces
-set shiftwidth=4 tabstop=4 softtabstop=4
+" Set indent to 4 spaces
+set shiftwidth=4
+" DO NOT UNCOMMENT THE FOLLOWING LINE UNLESS YOU WANT TO USE TABS INSTEAD OF
+" SPACES FOR INDENTS!!!
+"set tabstop=4
+" Alter backspace behavior to treat indent spaces like tabs
+set softtabstop=4
+" Change tabs into spaces
+set expandtab
 " Turn on line numbers
 set number
-" Turn on word wrap
-set lbr
+" Turn on visual word wrap at the end of a word...
+set wrap linebreak
+" ...but disable wrapping onto a new line
+set formatoptions-=t
 " Highlight column 80, useful when using large windows
 set colorcolumn=80
 " Highlight the current line
@@ -29,15 +38,17 @@ set cursorline
 set hlsearch
 " Enable spelling dictionary locale
 set spelllang=en_us
+" Enable ruler in bottom-right corner
+set ruler
 " Disable backup files
 set nobackup
 " Disable swapfile
 set noswapfile
-" Save as *nix file format
-set ff=unix
-" Disable menu bar & toolbar
+" Disable/hide menu & toolbar at top of window
 set guioptions-=m
 set guioptions-=T
+" Save as *nix file format
+set ff=unix
 
 " ==================================================================
 " FILE SYNTAX HIGHLIGHTING
@@ -80,15 +91,15 @@ nnoremap <leader>qq :close<CR>
 nnoremap <leader>l gt
 " Jump to previous tab
 nnoremap <leader>h :tabp<CR>
-" Turn spell check on or off
-nnoremap <F4> :set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
+" Turn spell check On or Off
+nnoremap <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
 " Turn relativenumber on or off
 nnoremap <F1> :set relativenumber!<CR><Bar>:echo "Relative numbering: " . strpart("OffOn", 3 * &relativenumber, 3)<CR>
 " Go to next misspelled word
 nnoremap <F5> <Esc>]s
-" <F6> to go to previous misspelled word
+" Go to previous misspelled word
 nnoremap <F6> <Esc>[s
-" <F7> to display correct spelling suggestions
+" Display correct spelling suggestions
 nnoremap <F7> <Esc>z=
 " Jump to next file in buffer
 nnoremap <leader>j :bn<CR>
@@ -114,10 +125,10 @@ inoremap <Up> <C-o>gk
 nnoremap <leader>v <C-w>v
 nnoremap <leader>s <C-w>s
 " Faster navigation between splits
-nnoremap <C-h> <C-W>h
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-l> <C-W>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " ==================================================================
 " PROFESSIONAL USE KEYMAPPINGS

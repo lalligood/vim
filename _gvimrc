@@ -12,7 +12,7 @@ syntax on
 set guifont=Lucida_Console:h9
 colorscheme vividchalk
 " Set window size to 80 columns x 50 lines
-set columns=80 lines=50
+set columns=85 lines=50
 " Turn on smart indent feature
 set smartindent
 " Set indent to 4 spaces

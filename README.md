@@ -9,3 +9,4 @@ My personal vim files
 - **push.bat:** Windows batch file for copying _vimrc & _gvimrc to C:\Program Files (x86)\Vim
 - **vim/colors:** colorscheme files
 - **vim/syntax:** highlight syntax files
+- **font/:** sweet Hack fonts from https://github.com/chrissimpkins/Hack

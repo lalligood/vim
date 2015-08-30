@@ -9,7 +9,7 @@
 " Enable syntax highlighting
 syntax on
 " Set font & color scheme
-set guifont=LiberationMono\ 10
+set guifont=Hack\ 10
 colorscheme vividchalk
 " Set window size to 80 columns x 50 lines
 set columns=85 lines=50

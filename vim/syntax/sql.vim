@@ -135,7 +135,7 @@ syn keyword sqlType         contained mediumint mediumtext mlslabel money
 syn keyword sqlType         contained multiset nchar number numeric nvarchar
 syn keyword sqlType         contained raw real rowid serial serial8 set
 syn keyword sqlType         contained smallfloat smallint text time
-syn keyword sqlType         contained timestamp tinyblob tinyint tinytext
+syn keyword sqlType         contained timestamp tinyblob tinyint tinytext uuid
 syn keyword sqlType         contained varchar varchar2 varray year
 syn match   sqlType         contained "\<\(character\|double\|varying\)\>"
 syn match   sqlType         contained "\<character\s\+varying\>"

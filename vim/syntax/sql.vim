@@ -95,7 +95,7 @@ syn match   sqlFunction     "\<\(coalesce\|concat\|cos\|count\|\(date\)\?\(time\
 syn match   sqlFunction     "\<\(exp\|filetoblob\|filetoclob\|floor\|glob\|group_concat\)(\@="
 syn match   sqlFunction     "\<\(hex\|ifnull\|initcap\|isnull\|julianday\|last_insert_rowid\)(\@="
 syn match   sqlFunction     "\<\(length\|log10\|logn\|lower\|lpad\|ltrin\|max\|min\)(\@="
-syn match   sqlFunction     "\<\(mod\|nullif\|octet_length\|pow\|quote\|random\)(\@="
+syn match   sqlFunction     "\<\(mod\|nullif\|nvl\|octet_length\|pow\|quote\|random\)(\@="
 syn match   sqlFunction     "\<\(range\|replace\|root\|round\|rpad\|sin\|soundex\)(\@="
 syn match   sqlFunction     "\<\(sqrtstdev\|strftime\|substr\|substring\|sum\|sysdate\|tan\)(\@="
 syn match   sqlFunction     "\<\(to_char\|to_date\|to_number\|total\|trim\|trunc\|typeof\)(\@="

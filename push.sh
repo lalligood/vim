@@ -3,6 +3,16 @@
 FONTDIR=$HOME/.fonts
 currdir=`pwd`
 
+function makesymlink {
+if  [ ! -h $HOME/$1 ]; then
+    echo Creating symbolic link for $1
+    ln -s $currdir/$2 $HOME/$1
+    echo Symbolic link for $1 created successfully.
+else
+    echo Symbolic link for $1 already exists. Skipping...
+fi
+}
+
 if [ ! -d $FONTDIR ]; then
     echo ~/.fonts directory does not exist. Creating directory...
     mkdir $FONTDIR
@@ -13,26 +23,6 @@ fi
 
 cp -fv $currdir/font/* $FONTDIR/
 
-if  [ ! -h $HOME/.vimrc ]; then
-    echo Creating symbolic link for .vimrc
-    ln -s $currdir/.vimrc $HOME/.vimrc
-    echo Symbolic link for .vimrc created successfully.
-else
-    echo Symbolic link for .vimrc already exists. Skipping...
-fi
-
-if  [ ! -h $HOME/.gvimrc ]; then
-    echo Creating symbolic link for .gvimrc
-    ln -s $currdir/.gvimrc $HOME/.gvimrc
-    echo Symbolic link for .gvimrc created successfully.
-else
-    echo Symbolic link for .vimrc already exists. Skipping...
-fi
-
-if [ ! -h $HOME/.vim ]; then
-    echo Creating symbolic link for .vim/
-    ln -s $currdir/vim/ $HOME/.vim
-    echo Symbolic link for vim created successfully.
-else
-    echo Symbolic link for .vim/ already exists. Skipping...
-fi
+makesymlink .vimrc .vimrc
+makesymlink .gvimrc .gvimrc
+makesymlink .vim vim/

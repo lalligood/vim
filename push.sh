@@ -3,9 +3,8 @@
 FONTDIR=$HOME/.fonts
 currdir=`pwd`
 
-
 function makesymlink {
-if [ $2 != "" ]; then
+if [[ $2 == "" ]]; then
     # Create symlink for a directory
     if [ ! -d $1 ]; then
         echo $1 directory does not exist. Creating directory...
@@ -28,7 +27,6 @@ fi
 
 makesymlink $FONTDIR
 cp -fv $currdir/font/* $FONTDIR/
-
 makesymlink .vimrc .vimrc
 makesymlink .gvimrc .gvimrc
 makesymlink .vim vim/

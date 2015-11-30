@@ -77,9 +77,7 @@ nnoremap <silent> <leader><space> :noh<CR>:call clearmatches()<CR>
 " Move search results into the middle of the screen
 nnoremap n nzzzv
 nnoremap N Nzzzv
-" Enable/disable ability to paste with/without leading spaces
-set pastetoggle=<F3>
-" Clean any trailing whitespace
+" Remove any trailing whitespace
 nnoremap <leader>ww mz:%s/\s\+$//<CR>:let @/=''<CR>z
 " Place each open file into its own tab
 nnoremap <leader>tt :tab ball<CR>
@@ -91,14 +89,18 @@ nnoremap <leader>qq :close<CR>
 nnoremap <leader>l gt
 " Jump to previous tab
 nnoremap <leader>h :tabp<CR>
+" Turn relativenumber on or off
+nnoremap <silent> <F1> <Esc>:set relativenumber!<CR><Bar>:echo "Relative numbering: " . strpart("OffOn", 3 * &relativenumber, 3)<CR>
+" Enable/disable ability to paste with/without leading spaces
+nnoremap <F3> <Esc>:set invpaste paste?<CR>
+set pastetoggle=<F3>
+set showmode
 " Turn spell check On or Off
 nnoremap <F4> <Esc>:set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
-" Turn relativenumber on or off
-nnoremap <F1> :set relativenumber!<CR><Bar>:echo "Relative numbering: " . strpart("OffOn", 3 * &relativenumber, 3)<CR>
-" Go to next misspelled word
-nnoremap <F5> <Esc>]s
 " Go to previous misspelled word
-nnoremap <F6> <Esc>[s
+nnoremap <F5> <Esc>[s
+" Go to next misspelled word
+nnoremap <F6> <Esc>]s
 " Display correct spelling suggestions
 nnoremap <F7> <Esc>z=
 " Jump to next file in buffer

@@ -43,6 +43,10 @@ set nobackup
 set noswapfile
 " Set Blowfish for encryption algorithm
 set cm=blowfish
+" Enable folding & load/save folds
+set foldenable
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 
 " ==================================================================
 " FILE SYNTAX HIGHLIGHTING

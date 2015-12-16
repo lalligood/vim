@@ -45,8 +45,8 @@ set noswapfile
 set cm=blowfish
 " Enable folding & load/save folds
 set foldenable
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+au BufWinLeave ?* mkview
+au BufWinEnter ?* silent loadview
 
 " ==================================================================
 " FILE SYNTAX HIGHLIGHTING

@@ -53,6 +53,9 @@ set cm=blowfish
 set foldenable
 au BufWinLeave ?* mkview
 au BufWinEnter ?* silent loadview
+" Make tabs, trailing whitespace, & non-breaking spaces visible
+set listchars=tab:>-,trail:.,nbsp:~
+set list
 
 " ==================================================================
 " FILE SYNTAX HIGHLIGHTING

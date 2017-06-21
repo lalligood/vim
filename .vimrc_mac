@@ -1,6 +1,6 @@
 " ==================================================================
-" .gvimrc for Lance Alligood (lalligood@gmail.com)
-" ==================================================================
+" .vimrc for Lance Alligood (lalligood@gmail.com)
+" ================================================================== 
 
 " ==================================================================
 " PERSONAL SETTINGS
@@ -8,11 +8,8 @@
 
 " Enable syntax highlighting
 syntax on
-" Set font & color scheme
-set guifont=Hack\ 10
-colorscheme vividchalk
-" Set window size to 85 columns x 50 lines
-set columns=85 lines=50
+" Set color scheme
+colorscheme colorful256
 " Turn on smart indent feature
 set smartindent
 " Set indent to 4 spaces
@@ -44,9 +41,6 @@ set ruler
 set nobackup
 " Disable swapfile
 set noswapfile
-" Disable/hide menu & toolbar at top of window
-set guioptions-=m
-set guioptions-=T
 " Set Blowfish for encryption algorithm
 set cm=blowfish
 " Enable folding & load/save folds
@@ -86,16 +80,6 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 " Remove any trailing whitespace
 nnoremap <leader>ww mz:%s/\s\+$//<CR>:let @/=''<CR>z
-" Place each open file into its own tab
-nnoremap <leader>tt :tab ball<CR>
-" Open a new tab
-nnoremap <leader>nt :tabnew<CR>
-" Close window/tab
-nnoremap <leader>qq :close<CR>
-" Jump to next tab
-nnoremap <leader>l gt
-" Jump to previous tab
-nnoremap <leader>h :tabp<CR>
 " Turn relativenumber on or off
 nnoremap <silent> <F1> <Esc>:set relativenumber!<CR><Bar>:echo "Relative numbering: " . strpart("OffOn", 3 * &relativenumber, 3)<CR>
 " Enable/disable ability to paste with/without leading spaces
@@ -114,14 +98,6 @@ nnoremap <F7> <Esc>z=
 nnoremap <leader>j :bn<CR>
 " Jump to previous file in buffer
 nnoremap <leader>k :bp<CR>
-" Make menu & toolbar appear/disappear
-map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
-        \set guioptions-=T <Bar>
-        \set guioptions-=m <bar>
-    \else <Bar>
-        \set guioptions+=T <Bar>
-        \set guioptions+=m <Bar>
-    \endif<CR>
 " This changes default behavior of arrow keys for easier navigation with
 " long lines (paragraphs)
 nnoremap <Down> gj

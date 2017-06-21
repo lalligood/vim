@@ -9,7 +9,7 @@
 " Enable syntax highlighting
 syntax on
 " Set font & color scheme
-set guifont=Hack\ 10
+set guifont=Hack:h13
 colorscheme vividchalk
 " Set window size to 85 columns x 50 lines
 set columns=85 lines=50
@@ -45,8 +45,8 @@ set nobackup
 " Disable swapfile
 set noswapfile
 " Disable/hide menu & toolbar at top of window
-set guioptions-=m
-set guioptions-=T
+"set guioptions-=m
+"set guioptions-=T
 " Set Blowfish for encryption algorithm
 set cm=blowfish
 " Enable folding & load/save folds

@@ -1,32 +1,60 @@
 #!/bin/bash
-# Push vim files to desired location & create necessary symlinks
-FONTDIR=$HOME/.fonts
-currdir=`pwd`
 
-function create_refs {
-if [[ $2 == "" ]]; then
-    # Verify directory exists. Create it if it does not.
-    if [ ! -d $1 ]; then
-        echo $1 directory does not exist. Creating directory...
-        mkdir -v $1
-        echo $1 directory created successfully
+# Push font to desired location & create necessary symlinks to vim config
+
+FONTDEST=$HOME/.fonts
+currdir=`pwd`
+FONTSRC=${currdir}/font
+VIMSRC=vim
+
+function determine_os()
+# Determine whether running on Linux or Mac
+{
+    myos=`uname -s`
+    if [[ ${myos} == "Darwin" ]]; then
+        gvim=".gvimrc_mac"
+        vim=".vimrc_mac"
+        echo "Mac operating system detected."
     else
-        echo $1 already exists. Skipping...
+        gvim=".gvimrc"
+        vim=".vimrc"
+        echo "Linux operating system detected."
     fi
-else
-    # Verify symlink exists. Create it if it does not.
-    if  [ ! -h $HOME/$1 ]; then
-        echo Symbolic link for $1 does not exist. Creating symlink...
-        ln -v -s $currdir/$2 $HOME/$1
-        echo Symbolic link for $1 created successfully.
-    else
-        echo Symbolic link for $1 already exists. Skipping...
-    fi
-fi
+    echo
 }
 
-create_refs $FONTDIR
-cp -fv $currdir/font/* $FONTDIR/
-create_refs .vimrc .vimrc
-create_refs .gvimrc .gvimrc
-create_refs .vim vim/
+function create_refs()
+# Create references to configuration files & relevant directories
+{
+    if [[ $2 == "" ]]; then
+        # Verify directory exists. Create it if it does not.
+        if [ ! -d $1 ]; then
+            echo "$1 directory does not exist. Creating directory..."
+            mkdir -v $1
+            echo "$1 directory created successfully"
+        else
+            echo "$1 already exists. Skipping..."
+        fi
+    else
+        # Verify symlink exists. Create it if it does not.
+        src=${currdir}/$2
+        dest=$HOME/$1
+        if  [ ! -h ${dest} ]; then
+            echo "Symbolic link for $1 does not exist. Creating symlink..."
+            ln -vs ${src} ${dest}
+            echo "Symbolic link for $1 created successfully."
+        else
+            echo "Symbolic link for $1 already exists. Skipping..."
+        fi
+    fi
+    echo
+}
+
+determine_os
+create_refs ${FONTDEST}
+echo "(Over)writing .ttf files in ${FONTDEST}"
+cp -fv ${FONTSRC}/* ${FONTDEST}/
+echo
+create_refs .vimrc ${vim}
+create_refs .gvimrc ${gvim}
+create_refs .vim ${VIMSRC}

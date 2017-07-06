@@ -6,6 +6,7 @@ FONTDEST=$HOME/.fonts
 currdir=`pwd`
 FONTSRC=${currdir}/font
 VIMSRC=vim
+rmt_only=$1
 
 function determine_os()
 # Determine whether running on Linux or Mac
@@ -51,10 +52,14 @@ function create_refs()
 }
 
 determine_os
-create_refs ${FONTDEST}
-echo "(Over)writing .ttf files in ${FONTDEST}"
-cp -fv ${FONTSRC}/* ${FONTDEST}/
-echo
+# If any argument is presented at runtime, then it assumes you will only be
+# running vim on a remote server & skips any GUI-related goodness
+if [[ ${rmt_only} != "" ]]; then
+    create_refs ${FONTDEST}
+    echo "(Over)writing .ttf files in ${FONTDEST}"
+    cp -fv ${FONTSRC}/* ${FONTDEST}/
+    echo
+    create_refs .gvimrc ${gvim}
+fi
 create_refs .vimrc ${vim}
-create_refs .gvimrc ${gvim}
 create_refs .vim ${VIMSRC}

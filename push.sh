@@ -24,12 +24,12 @@ function determine_os()
     echo
 }
 
-function create_refs()
+function create_symlink()
 # Create references to configuration files & relevant directories
 {
     if [[ $2 == "" ]]; then
         # Verify directory exists. Create it if it does not.
-        if [ ! -d $1 ]; then
+        if [[ ! -d $1 ]]; then
             echo "$1 directory does not exist. Creating directory..."
             mkdir -v $1
             echo "$1 directory created successfully"
@@ -40,7 +40,7 @@ function create_refs()
         # Verify symlink exists. Create it if it does not.
         src=${currdir}/$2
         dest=$HOME/$1
-        if  [ ! -h ${dest} ]; then
+        if  [[ ! -h ${dest} ]]; then
             echo "Symbolic link for $1 does not exist. Creating symlink..."
             ln -vs ${src} ${dest}
             echo "Symbolic link for $1 created successfully."
@@ -55,11 +55,11 @@ determine_os
 # If any argument is presented at runtime, then it assumes you will only be
 # running vim on a remote server & skips any GUI-related goodness
 if [[ ${rmt_only} == "" ]]; then
-    create_refs ${FONTDEST}
+    create_symlink ${FONTDEST}
     echo "(Over)writing .ttf files in ${FONTDEST}"
     cp -fv ${FONTSRC}/* ${FONTDEST}/
     echo
-    create_refs .gvimrc ${gvim}
+    create_symlink .gvimrc ${gvim}
 fi
-create_refs .vimrc ${vim}
-create_refs .vim ${VIMSRC}
+create_symlink .vimrc ${vim}
+create_symlink .vim ${VIMSRC}

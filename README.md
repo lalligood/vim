@@ -12,6 +12,8 @@
 * `vim/syntax`: highlight syntax files
     * [`arduino.vim`](https://bitbucket.org/johannes/arduino-vim-syntax/downloads)
     * [`sql.vim`](https://github.com/JessicaKMcIntosh/Vim)
+* `vim/plugin`: plugin files
+    * [`surround.vim`](https://github.com/tpope/vim-surround)
 * `font/`: sweet [Hack font](https://github.com/chrissimpkins/Hack)
 
 # Installation instructions: #

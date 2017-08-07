@@ -67,8 +67,8 @@ au BufNewFile,BufRead *.sql setf sql
 " PERSONAL KEYMAPPINGS
 " ==================================================================
 
-" Enable <Tab> as leader
-let mapleader = "\<Tab>"
+" Enable <Tab> as leader (Default leader is '\')
+"let mapleader = "\<Tab>"
 " Close window
 nnoremap K :q<CR>
 " Turn diff off
@@ -119,6 +119,13 @@ nnoremap <C-l> <C-w>l
 " DEVELOPMENT SPECIFIC SETTINGS
 " ==================================================================
 
+" Execute queries from within vim? Sure, why not!
+" dbext plugin: https://github.com/vim-scripts/dbext.vim
+" http://jonathansacramento.com/posts/20160122-improve-postgresql-workflow-vim-dbext.html
+let g:dbext_default_profile_LOCAL = 'type=PGSQL:host=localhost:port=5432:dbname=lunch:user=postgres'
+let g:dbext_default_profile_PROD = 'type=PGSQL:host=fs-bu:port=5432:dbname=nntpdw:user=lance'
+let g:dbext_default_profile_DEV = 'type=PGSQL:host=host-hwm-db2:port=5432:dbname=dw_prod:user=lance'
+let g:dbext_default_profile = 'PROD'
 " Insert mode text expansion shortcuts as inspired by
 " https://8thlight.com/blog/jerome-goodrich/2017/01/17/Vim-and-TDD.html
 " SQL-centric

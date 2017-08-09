@@ -3,6 +3,8 @@ DBI	dbext.txt	/*DBI*
 ODBC	dbext.txt	/*ODBC*
 asa	dbext.txt	/*asa*
 ase	dbext.txt	/*ase*
+cS	surround.txt	/*cS*
+cs	surround.txt	/*cs*
 database-extension	dbext.txt	/*database-extension*
 db2	dbext.txt	/*db2*
 db_ext	dbext.txt	/*db_ext*
@@ -57,7 +59,10 @@ dbext-tutorial-select	dbext.txt	/*dbext-tutorial-select*
 dbext-tutorial-variables	dbext.txt	/*dbext-tutorial-variables*
 dbext.txt	dbext.txt	/*dbext.txt*
 dbext.vim	dbext.txt	/*dbext.vim*
+ds	surround.txt	/*ds*
 firebird	dbext.txt	/*firebird*
+i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
+i_CTRL-G_s	surround.txt	/*i_CTRL-G_s*
 ingres	dbext.txt	/*ingres*
 interbase	dbext.txt	/*interbase*
 mysql	dbext.txt	/*mysql*
@@ -67,3 +72,16 @@ pgsql	dbext.txt	/*pgsql*
 sqlanywhere	dbext.txt	/*sqlanywhere*
 sqlite	dbext.txt	/*sqlite*
 sqlsrv	dbext.txt	/*sqlsrv*
+surround	surround.txt	/*surround*
+surround-customizing	surround.txt	/*surround-customizing*
+surround-issues	surround.txt	/*surround-issues*
+surround-mappings	surround.txt	/*surround-mappings*
+surround-replacements	surround.txt	/*surround-replacements*
+surround-targets	surround.txt	/*surround-targets*
+surround.txt	surround.txt	/*surround.txt*
+vS	surround.txt	/*vS*
+vgS	surround.txt	/*vgS*
+yS	surround.txt	/*yS*
+ySS	surround.txt	/*ySS*
+ys	surround.txt	/*ys*
+yss	surround.txt	/*yss*

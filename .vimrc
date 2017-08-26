@@ -62,13 +62,23 @@ au BufNewFile,BufRead *.ino setf arduino
 au BufNewFile,BufRead *.conf setf dosini
 " SQL files - requires sql.vim
 au BufNewFile,BufRead *.sql setf sql
+" Python script files
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+    \ set encoding=utf-8
 
 " ==================================================================
 " PERSONAL KEYMAPPINGS
 " ==================================================================
 
-" Enable <Tab> as leader
-let mapleader = "\<Tab>"
+" Enable <Tab> as leader (Default leader is '\')
+"let mapleader = "\<Tab>"
 " Close window
 nnoremap K :q<CR>
 " Turn diff off

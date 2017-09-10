@@ -14,15 +14,18 @@ colorscheme colorful256
 set smartindent
 " Set indent to 4 spaces
 set shiftwidth=4
-" DO NOT UNCOMMENT THE FOLLOWING LINE UNLESS YOU WANT TO USE TABS INSTEAD OF
-" SPACES FOR INDENTS!!!
-"set tabstop=4
 " Alter backspace behavior to treat indent spaces like tabs
 set softtabstop=4
 " Change tabs into spaces
 set expandtab
 " Turn on line numbers
 set number
+" Enable relative numbers for normal mode, disable in insert mode
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
 " Turn on visual word wrap at the end of a word...
 set wrap linebreak
 " ...but disable wrapping onto a new line

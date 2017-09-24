@@ -71,13 +71,23 @@ au BufNewFile,BufRead *.ino setf arduino
 au BufNewFile,BufRead *.conf setf dosini
 " SQL files - requires sql.vim
 au BufNewFile,BufRead *.sql setf sql
+" Python script files
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+    \ set encoding=utf-8
 
 " ==================================================================
 " PERSONAL KEYMAPPINGS
 " ==================================================================
 
-" Enable <Tab> as leader
-let mapleader = "\<Tab>"
+" Enable <Tab> as leader (Default leader is '\')
+"let mapleader = "\<Tab>"
 " Close window
 nnoremap K :q<CR>
 " Turn diff off
@@ -141,3 +151,27 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" ==================================================================
+" DEVELOPMENT SPECIFIC SETTINGS
+" ==================================================================
+
+" Execute queries from within vim? Sure, why not!
+" dbext plugin: https://github.com/vim-scripts/dbext.vim
+" http://jonathansacramento.com/posts/20160122-improve-postgresql-workflow-vim-dbext.html
+"let g:dbext_default_profile_LOCAL = 'type=PGSQL:host=localhost:port=5432:dbname=lunch:user=postgres'
+"let g:dbext_default_profile_PROD = 'type=PGSQL:host=fs-bu:port=5432:dbname=nntpdw:user=lance'
+"let g:dbext_default_profile_DEV = 'type=PGSQL:host=host-hwm-db2:port=5432:dbname=dw_prod:user=lance'
+"let g:dbext_default_profile = 'PROD'
+" Insert mode text expansion shortcuts as inspired by
+" https://8thlight.com/blog/jerome-goodrich/2017/01/17/Vim-and-TDD.html
+" SQL-centric
+iabbrev sqls SELECT<CR><CR>FROM <CR>WHERE <CR>--GROUP BY <CR>--ORDER BY <CR>--LIMIT <CR>;<ESC>6ki   
+iabbrev sqlu UPDATE<CR>    SET <CR>WHERE <CR>RETURNING *;<ESC>3kA
+au FileType sql :iabbrev ij INNER JOIN  ON<ESC>3hi
+au FileType sql :iabbrev loj LEFT OUTER JOIN  ON<ESC>3hi
+" bash-centric
+iabbrev newsh #!/bin/bash<CR><CR>#
+au FileType sh :iabbrev newf ()<CR># Function <CR>{<CR><CR>}<CR><ESC>5kI
+" python-centric
+iabbrev newpy #!/usr/bin/env python3<CR><CR>'''<CR>'''<CR><CR>__status__ = ''<CR>__version__ = ''<CR>__maintainer__ = 'Lance Alligood'<CR>__email__ = 'lance.alligood@omicronmedia.com'<CR><CR>

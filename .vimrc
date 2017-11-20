@@ -56,6 +56,8 @@ au BufWinEnter ?* silent loadview
 " Make tabs, trailing whitespace, & non-breaking spaces visible
 set listchars=tab:>-,trail:.,nbsp:~
 set list
+" Disable screen redraw to speed up macros
+set lazyredraw
 
 " ==================================================================
 " FILE SYNTAX HIGHLIGHTING

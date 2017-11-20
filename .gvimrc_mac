@@ -56,6 +56,8 @@ au BufWinEnter ?* silent loadview
 " Make tabs, trailing whitespace, & non-breaking spaces visible
 set listchars=tab:>-,trail:.,nbsp:~
 set list
+" Disable screen redraw to speed up macros
+set lazyredraw
 
 " ==================================================================
 " FILE SYNTAX HIGHLIGHTING
@@ -74,7 +76,7 @@ au BufNewFile,BufRead *.sql setf sql
 " ==================================================================
 
 " Enable <Tab> as leader
-let mapleader = "\<Tab>"
+"let mapleader = "\<Tab>"
 " Close window
 nnoremap K :q<CR>
 " Turn diff off

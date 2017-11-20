@@ -6,9 +6,9 @@ FONTDEST=$HOME/.fonts
 currdir=`pwd`
 FONTSRC=${currdir}/font
 VIMSRC=vim
-add_gui=$1
+rmt_only=$1
 
-determine_os()
+function determine_os()
 # Determine whether running on Linux or Mac
 {
     myos=`uname -s`
@@ -24,7 +24,7 @@ determine_os()
     echo
 }
 
-create_symlink()
+function create_symlink()
 # Create references to configuration files & relevant directories
 {
     if [[ $2 == "" ]]; then
@@ -52,9 +52,9 @@ create_symlink()
 }
 
 determine_os
-# If any argument is presented at runtime, then it will install .gvimrc for
-# any gVim GUI & the awesome hack font
-if [[ -n "${add_gui}" ]]; then
+# If any argument is presented at runtime, then it assumes you will only be
+# running vim on a remote server & skips any GUI-related goodness
+if [[ ${rmt_only} == "" ]]; then
     create_symlink ${FONTDEST}
     echo "(Over)writing .ttf files in ${FONTDEST}"
     cp -fv ${FONTSRC}/* ${FONTDEST}/

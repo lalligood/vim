@@ -1,3 +1,4 @@
-vim/view/*
+vim/view/
 vim/spell/en.utf-8*
 vim/.netrwhist
+vim/undo/

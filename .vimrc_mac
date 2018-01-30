@@ -24,11 +24,11 @@ set expandtab
 " Turn on line numbers
 set number
 " Enable relative numbers for normal mode, disable in insert mode
-augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-augroup END
+"augroup numbertoggle
+"    autocmd!
+"    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+"augroup END
 " Turn on visual word wrap at the end of a word...
 set wrap linebreak
 " ...but disable wrapping onto a new line
@@ -144,6 +144,9 @@ nnoremap <C-l> <C-w>l
 " DEVELOPMENT SPECIFIC SETTINGS
 " ==================================================================
 
+" Fuzzy file finder
+" ctrlp plugin: https://github.com/ctrlpvim/ctrlp.vim
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Execute queries from within vim? Sure, why not!
 " dbext plugin: https://github.com/vim-scripts/dbext.vim
 " http://jonathansacramento.com/posts/20160122-improve-postgresql-workflow-vim-dbext.html

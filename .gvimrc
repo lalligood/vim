@@ -6,6 +6,9 @@
 " PERSONAL SETTINGS
 " ==================================================================
 
+" Powerline
+set rtp+=$HOME/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim
+set laststatus=2
 " Enable syntax highlighting
 syntax on
 " Set font & color scheme
@@ -24,11 +27,11 @@ set expandtab
 " Turn on line numbers
 set number
 " Enable relative numbers for normal mode, disable in insert mode
-augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-augroup END
+"augroup numbertoggle
+"    autocmd!
+"    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+"augroup END
 " Turn on visual word wrap at the end of a word...
 set wrap linebreak
 " ...but disable wrapping onto a new line
@@ -47,34 +50,40 @@ set ruler
 set nobackup
 " Disable swapfile
 set noswapfile
-" Disable/hide menu & toolbar at top of window
-set guioptions-=m
-set guioptions-=T
-" Set Blowfish for encryption algorithm
-set cm=blowfish
+" Enable persistent undo
+silent !mkdir ~/.vim/undo > /dev/null 2>&1
+set undodir=~/.vim/undo//
+set undofile
+" Set Blowfish2 for encryption algorithm
+set cryptmethod=blowfish2
 " Enable folding & load/save folds
 set foldenable
-au BufWinLeave ?* mkview
-au BufWinEnter ?* silent loadview
+set foldmethod=manual
+augroup rememberfolds
+    autocmd BufWinLeave * mkview
+    autocmd BufWinEnter * silent loadview
+augroup END
 " Make tabs, trailing whitespace, & non-breaking spaces visible
 set listchars=tab:>-,trail:.,nbsp:~
 set list
 " Disable screen redraw to speed up macros
 set lazyredraw
+" Disable modeline support
+set nomodeline
 
 " ==================================================================
 " FILE SYNTAX HIGHLIGHTING
 " ==================================================================
 
 " Arduino sketch files - requires arduino.vim
-au BufNewFile,BufRead *.pde setf arduino
-au BufNewFile,BufRead *.ino setf arduino
+autocmd BufNewFile,BufRead *.pde setf arduino
+autocmd BufNewFile,BufRead *.ino setf arduino
 " Linux configuration files
-au BufNewFile,BufRead *.conf setf dosini
+autocmd BufNewFile,BufRead *.conf setf dosini
 " SQL files - requires sql.vim
-au BufNewFile,BufRead *.sql setf sql
+autocmd BufNewFile,BufRead *.sql setf sql
 " Python script files
-au BufNewFile,BufRead *.py
+autocmd BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -88,8 +97,6 @@ au BufNewFile,BufRead *.py
 " PERSONAL KEYMAPPINGS
 " ==================================================================
 
-" Enable <Tab> as leader (Default leader is '\')
-"let mapleader = "\<Tab>"
 " Close window
 nnoremap K :q<CR>
 " Turn diff off
@@ -129,14 +136,6 @@ nnoremap <F7> <Esc>z=
 nnoremap <leader>j :bn<CR>
 " Jump to previous file in buffer
 nnoremap <leader>k :bp<CR>
-" Make menu & toolbar appear/disappear
-map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
-        \set guioptions-=T <Bar>
-        \set guioptions-=m <bar>
-    \else <Bar>
-        \set guioptions+=T <Bar>
-        \set guioptions+=m <Bar>
-    \endif<CR>
 " This changes default behavior of arrow keys for easier navigation with
 " long lines (paragraphs)
 nnoremap <Down> gj
@@ -158,6 +157,9 @@ nnoremap <C-l> <C-w>l
 " DEVELOPMENT SPECIFIC SETTINGS
 " ==================================================================
 
+" Fuzzy file finder
+" ctrlp plugin: https://github.com/ctrlpvim/ctrlp.vim
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Execute queries from within vim? Sure, why not!
 " dbext plugin: https://github.com/vim-scripts/dbext.vim
 " http://jonathansacramento.com/posts/20160122-improve-postgresql-workflow-vim-dbext.html
@@ -168,12 +170,12 @@ nnoremap <C-l> <C-w>l
 " Insert mode text expansion shortcuts as inspired by
 " https://8thlight.com/blog/jerome-goodrich/2017/01/17/Vim-and-TDD.html
 " SQL-centric
-iabbrev sqls SELECT<CR><CR>FROM <CR>WHERE <CR>--GROUP BY <CR>--ORDER BY <CR>--LIMIT <CR>;<ESC>6ki   
+iabbrev sqls SELECT<CR><CR>FROM <CR>WHERE <CR>--GROUP BY <CR>--ORDER BY <CR>--LIMIT <CR>;<ESC>6ki
 iabbrev sqlu UPDATE<CR>    SET <CR>WHERE <CR>RETURNING *;<ESC>3kA
-au FileType sql :iabbrev ij INNER JOIN  ON<ESC>3hi
-au FileType sql :iabbrev loj LEFT OUTER JOIN  ON<ESC>3hi
+autocmd FileType sql :iabbrev ij INNER JOIN  ON<ESC>3hi
+autocmd FileType sql :iabbrev loj LEFT OUTER JOIN  ON<ESC>3hi
 " bash-centric
 iabbrev newsh #!/bin/bash<CR><CR>#
-au FileType sh :iabbrev newf ()<CR># Function <CR>{<CR><CR>}<CR><ESC>5kI
+autocmd FileType sh :iabbrev newf ()<CR># Function <CR>{<CR><CR>}<CR><ESC>5kI
 " python-centric
 iabbrev newpy #!/usr/bin/env python3<CR><CR>'''<CR>'''<CR><CR>__status__ = ''<CR>__version__ = ''<CR>__maintainer__ = 'Lance Alligood'<CR>__email__ = 'lance.alligood@omicronmedia.com'<CR><CR>

@@ -42,7 +42,7 @@ if [[ -n "${add_gui}" ]]; then
     echo "(Over)writing .ttf files in ${FONTDEST}"
     cp -fv ${FONTSRC}/* ${FONTDEST}/
     echo
-    create_symlink .gvimrc ${gvim}
+    create_symlink .gvimrc .gvimrc 
 fi
-create_symlink .vimrc ${vim}
+create_symlink .vimrc .vimrc
 create_symlink .vim ${VIMSRC}

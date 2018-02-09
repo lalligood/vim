@@ -8,22 +8,6 @@ FONTSRC=${currdir}/font
 VIMSRC=vim
 add_gui=$1
 
-determine_os()
-# Determine whether running on Linux or Mac
-{
-    myos=`uname -s`
-    if [[ ${myos} == "Darwin" ]]; then
-        gvim=".gvimrc_mac"
-        vim=".vimrc_mac"
-        echo "Mac operating system detected."
-    else
-        gvim=".gvimrc"
-        vim=".vimrc"
-        echo "Linux operating system detected."
-    fi
-    echo
-}
-
 create_symlink()
 # Create references to configuration files & relevant directories
 {
@@ -51,7 +35,6 @@ create_symlink()
     echo
 }
 
-determine_os
 # If any argument is presented at runtime, then it will install .gvimrc for
 # any gVim GUI & the awesome Hack font
 if [[ -n "${add_gui}" ]]; then

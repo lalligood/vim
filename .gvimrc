@@ -6,13 +6,24 @@
 " PERSONAL SETTINGS
 " ==================================================================
 
-" Powerline
-set rtp+=$HOME/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim
+let s:uname = system("uname")
+if s:uname == "Darwin\n"
+    " Mac-specific options
+    " Powerline
+    set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
+    " Set font
+    set guifont=Hack:h13
+else
+    " Linux-specific options
+    " Powerline
+    set rtp+=$HOME/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim
+    " Set font
+    set guifont=Hack\ 10
+endif
 set laststatus=2
 " Enable syntax highlighting
 syntax on
-" Set font & color scheme
-set guifont=Hack\ 10
+" Set color scheme
 colorscheme vividchalk
 " Set window size to 85 columns x 50 lines
 set columns=85 lines=50
@@ -160,13 +171,16 @@ nnoremap <C-l> <C-w>l
 " Fuzzy file finder
 " ctrlp plugin: https://github.com/ctrlpvim/ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-" Execute queries from within vim? Sure, why not!
-" dbext plugin: https://github.com/vim-scripts/dbext.vim
-" http://jonathansacramento.com/posts/20160122-improve-postgresql-workflow-vim-dbext.html
-"let g:dbext_default_profile_LOCAL = 'type=PGSQL:host=localhost:port=5432:dbname=lunch:user=postgres'
-"let g:dbext_default_profile_PROD = 'type=PGSQL:host=fs-bu:port=5432:dbname=nntpdw:user=lance'
-"let g:dbext_default_profile_DEV = 'type=PGSQL:host=host-hwm-db2:port=5432:dbname=dw_prod:user=lance'
-"let g:dbext_default_profile = 'PROD'
+if s:uname == "Darwin\n"
+    " Mac-specific options
+    " Execute queries from within vim? Sure, why not!
+    " dbext plugin: https://github.com/vim-scripts/dbext.vim
+    " http://jonathansacramento.com/posts/20160122-improve-postgresql-workflow-vim-dbext.html
+    let g:dbext_default_profile_LOCAL = 'type=PGSQL:host=localhost:port=5432:dbname=lunch:user=postgres'
+    let g:dbext_default_profile_PROD = 'type=PGSQL:host=fs-bu:port=5432:dbname=nntpdw:user=lance'
+    let g:dbext_default_profile_DEV = 'type=PGSQL:host=host-hwm-db2:port=5432:dbname=dw_prod:user=lance'
+    let g:dbext_default_profile = 'PROD'
+endif
 " Insert mode text expansion shortcuts as inspired by
 " https://8thlight.com/blog/jerome-goodrich/2017/01/17/Vim-and-TDD.html
 " SQL-centric

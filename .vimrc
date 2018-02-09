@@ -6,8 +6,17 @@
 " PERSONAL SETTINGS
 " ==================================================================
 
-" Powerline
-set rtp+=$HOME/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim
+let s:uname = system("uname")
+if s:uname == "Darwin\n"
+    " Mac-specific options
+    " Powerline
+    set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
+else
+    " Linux-specific options
+    " Powerline
+    set rtp+=$HOME/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim
+
+endif
 set laststatus=2
 " Enable syntax highlighting
 syntax on
@@ -55,13 +64,18 @@ set undofile
 set cryptmethod=blowfish2
 " Enable folding & load/save folds
 set foldenable
-autocmd BufWinLeave ?* mkview
-autocmd BufWinEnter ?* silent loadview
+set foldmethod=manual
+augroup rememberfolds
+    autocmd BufWinLeave * mkview
+    autocmd BufWinEnter * silent loadview
+augroup END
 " Make tabs, trailing whitespace, & non-breaking spaces visible
 set listchars=tab:>-,trail:.,nbsp:~
 set list
 " Disable screen redraw to speed up macros
 set lazyredraw
+" Disable modeline support
+set nomodeline
 
 " ==================================================================
 " FILE SYNTAX HIGHLIGHTING
@@ -142,13 +156,16 @@ nnoremap <C-l> <C-w>l
 " Fuzzy file finder
 " ctrlp plugin: https://github.com/ctrlpvim/ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-" Execute queries from within vim? Sure, why not!
-" dbext plugin: https://github.com/vim-scripts/dbext.vim
-" http://jonathansacramento.com/posts/20160122-improve-postgresql-workflow-vim-dbext.html
-"let g:dbext_default_profile_LOCAL = 'type=PGSQL:host=localhost:port=5432:dbname=lunch:user=postgres'
-"let g:dbext_default_profile_PROD = 'type=PGSQL:host=fs-bu:port=5432:dbname=nntpdw:user=lance'
-"let g:dbext_default_profile_DEV = 'type=PGSQL:host=host-hwm-db2:port=5432:dbname=dw_prod:user=lance'
-"let g:dbext_default_profile = 'PROD'
+if s:uname == "Darwin\n"
+    " Mac-specific options
+    " Execute queries from within vim? Sure, why not!
+    " dbext plugin: https://github.com/vim-scripts/dbext.vim
+    " http://jonathansacramento.com/posts/20160122-improve-postgresql-workflow-vim-dbext.html
+    let g:dbext_default_profile_LOCAL = 'type=PGSQL:host=localhost:port=5432:dbname=lunch:user=postgres'
+    let g:dbext_default_profile_PROD = 'type=PGSQL:host=fs-bu:port=5432:dbname=nntpdw:user=lance'
+    let g:dbext_default_profile_DEV = 'type=PGSQL:host=host-hwm-db2:port=5432:dbname=dw_prod:user=lance'
+    let g:dbext_default_profile = 'PROD'
+endif
 " Insert mode text expansion shortcuts as inspired by
 " https://8thlight.com/blog/jerome-goodrich/2017/01/17/Vim-and-TDD.html
 " SQL-centric

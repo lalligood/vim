@@ -104,7 +104,7 @@ autocmd BufNewFile,BufRead *.py
 " ==================================================================
 
 " Close window
-nnoremap K :q<CR>
+nnoremap <bs> :q<CR>
 " Turn diff off
 nnoremap <leader>D :diffoff!<CR>
 " Turn off search result highlights

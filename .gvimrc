@@ -37,12 +37,6 @@ set softtabstop=4
 set expandtab
 " Turn on line numbers
 set number
-" Enable relative numbers for normal mode, disable in insert mode
-"augroup numbertoggle
-"    autocmd!
-"    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-"    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-"augroup END
 " Turn on visual word wrap at the end of a word...
 set wrap linebreak
 " ...but disable wrapping onto a new line
@@ -70,9 +64,9 @@ set cryptmethod=blowfish2
 " Enable folding & load/save folds
 set foldenable
 set foldmethod=manual
-augroup rememberfolds
-    autocmd BufWinLeave * mkview
-    autocmd BufWinEnter * silent loadview
+augroup remember_folds
+    autocmd BufWinLeave *.* mkview
+    autocmd BufWinEnter *.* silent loadview
 augroup END
 " Make tabs, trailing whitespace, & non-breaking spaces visible
 set listchars=tab:>-,trail:.,nbsp:~

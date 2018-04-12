@@ -60,7 +60,9 @@ silent !mkdir ~/.vim/undo > /dev/null 2>&1
 set undodir=~/.vim/undo//
 set undofile
 " Set Blowfish2 for encryption algorithm
-set cryptmethod=blowfish2
+if v:version > 800
+    set cryptmethod=blowfish2
+endif
 " Enable folding & load/save folds
 set foldenable
 set foldmethod=manual

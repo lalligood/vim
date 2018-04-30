@@ -109,7 +109,7 @@ nnoremap <silent> <leader><space> :noh<CR>:call clearmatches()<CR>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 " Remove any trailing whitespace
-nnoremap <leader>ww mz:%s/\s\+$//<CR>:let @/=''<CR>z
+nnoremap <leader>ww mz:%s/\s\+$//<CR>:let @/=''<CR>
 " Turn relativenumber on or off
 nnoremap <silent> <F1> <Esc>:set relativenumber!<CR><Bar>:echo "Relative numbering: " . strpart("OffOn", 3 * &relativenumber, 3)<CR>
 " Enable/disable ability to paste with/without leading spaces

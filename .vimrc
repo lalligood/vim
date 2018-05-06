@@ -66,7 +66,8 @@ augroup remember_folds
     autocmd BufWinEnter *.* silent loadview
 augroup END
 " Make tabs, trailing whitespace, & non-breaking spaces visible
-set listchars=tab:>-,trail:.,nbsp:~
+" Inspired by https://www.reddit.com/r/vim/comments/4hoa6e/what_do_you_use_for_your_listchars/
+set listchars=tab:»›,trail:·,nbsp:¤,eol:↲
 set list
 " Disable screen redraw to speed up macros
 set lazyredraw
@@ -152,16 +153,6 @@ nnoremap <C-l> <C-w>l
 " Fuzzy file finder
 " ctrlp plugin: https://github.com/ctrlpvim/ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-if s:uname == "Darwin\n"
-    " Mac-specific options
-    " Execute queries from within vim? Sure, why not!
-    " dbext plugin: https://github.com/vim-scripts/dbext.vim
-    " http://jonathansacramento.com/posts/20160122-improve-postgresql-workflow-vim-dbext.html
-    let g:dbext_default_profile_LOCAL = 'type=PGSQL:host=localhost:port=5432:dbname=lunch:user=postgres'
-    let g:dbext_default_profile_PROD = 'type=PGSQL:host=fs-bu:port=5432:dbname=nntpdw:user=lance'
-    let g:dbext_default_profile_DEV = 'type=PGSQL:host=host-hwm-db2:port=5432:dbname=dw_prod:user=lance'
-    let g:dbext_default_profile = 'PROD'
-endif
 " Insert mode text expansion shortcuts as inspired by
 " https://8thlight.com/blog/jerome-goodrich/2017/01/17/Vim-and-TDD.html
 " SQL-centric

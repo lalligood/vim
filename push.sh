@@ -21,6 +21,7 @@ verify_hack_font()
 
 install_hack_on_mac()
 # Opens Finder window & Font Book application if run on Mac
+{
     echo "You will need to install/update the Hack font manually."
     echo "Opening Hack fonts in Finder..."
     open ${FONTSRC}

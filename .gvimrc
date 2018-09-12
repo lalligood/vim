@@ -10,7 +10,7 @@ let s:uname = system("uname")
 if s:uname == "Darwin\n"
     " Mac-specific options
     " Powerline
-    set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
+    set rtp+=/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim
     " Set font
     set guifont=Hack:h13
 else

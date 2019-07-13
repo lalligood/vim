@@ -9,17 +9,17 @@
 let s:uname = system("uname")
 if s:uname == "Darwin\n"
     " Mac-specific options
-    " Powerline
-    set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
     " Set font
     set guifont=Hack:h13
 else
     " Linux-specific options
-    " Powerline
-    set rtp+=$HOME/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim
     " Set font
     set guifont=Hack\ 10
 endif
+" Powerline
+" Requires:
+"   pip install powerline-status
+set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
 set laststatus=2
 " Enable syntax highlighting
 syntax on

@@ -6,17 +6,11 @@
 " PERSONAL SETTINGS
 " ==================================================================
 
-let s:uname = system("uname")
-if s:uname == "Darwin\n"
-    " Mac-specific options
-    " Powerline
-    set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
-else
-    " Linux-specific options
-    " Powerline
-    set rtp+=$HOME/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim
-
-endif
+" Powerline
+" Requires:
+"   pip install powerline-status
+" VERIFY VERSION OF PYTHON3 INSTALLED & UPDATE PATH BELOW AS NEEDED!
+set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
 set laststatus=2
 " Enable syntax highlighting
 syntax on
@@ -37,7 +31,7 @@ set wrap linebreak
 " ...but disable wrapping onto a new line
 set formatoptions-=t
 " Highlight column 80, useful when using large windows
-set colorcolumn=80
+set colorcolumn=85
 " Highlight the current line
 set cursorline
 " Highlight search strings
@@ -165,3 +159,4 @@ iabbrev newsh #!/bin/bash<CR><CR>#
 autocmd FileType sh :iabbrev newf ()<CR># Function <CR>{<CR><CR>}<CR><ESC>5kI
 " python-centric
 iabbrev newpy #!/usr/bin/env python3<CR><CR>"""<CR>"""<CR><CR>__status__ = 'development'<CR>__version__ = '0.0.1'<CR>__maintainer__ = 'Lance Alligood'<CR>__email__ = 'lance.alligood@omicronmedia.com'<CR><CR>
+" autocmd BufWritePre *.py execute ':Black'

@@ -180,3 +180,4 @@ iabbrev newsh #!/bin/bash<CR><CR>#
 autocmd FileType sh :iabbrev newf ()<CR># Function <CR>{<CR><CR>}<CR><ESC>5kI
 " python-centric
 iabbrev newpy #!/usr/bin/env python3<CR><CR>"""<CR>"""<CR><CR>__status__ = 'Development'<CR>__version__ = '0.0.1'<CR>__maintainer__ = 'Lance Alligood'<CR>__email__ = 'lance.alligood@omicronmedia.com'<CR><CR>
+autocmd BufWritePre *.py execute ':Black'

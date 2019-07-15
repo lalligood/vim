@@ -11,15 +11,15 @@ if s:uname == "Darwin\n"
     " Mac-specific options
     " Set font
     set guifont=Hack:h13
+    " Powerline (requires: pip install powerline-status)
+    set rtp+=$HOME/.local/lib/python3.7/site-packages/powerline/bindings/vim
 else
     " Linux-specific options
     " Set font
     set guifont=Hack\ 10
+    " Powerline (requires: pip install powerline-status)
+    set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
 endif
-" Powerline
-" Requires:
-"   pip install powerline-status
-set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
 set laststatus=2
 " Enable syntax highlighting
 syntax on

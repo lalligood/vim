@@ -6,11 +6,15 @@
 " PERSONAL SETTINGS
 " ==================================================================
 
-" Powerline
-" Requires:
-"   pip install powerline-status
-" VERIFY VERSION OF PYTHON3 INSTALLED & UPDATE PATH BELOW AS NEEDED!
-set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
+" Powerline (requires: pip install powerline-status)
+let s:uname = system("uname")
+if s:uname == "Darwin\n"
+    " Mac-specific options
+    set rtp+=$HOME/.local/lib/python3.7/site-packages/powerline/bindings/vim
+else
+    " Linux-specific options
+    set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
+endif
 set laststatus=2
 " Enable syntax highlighting
 syntax on

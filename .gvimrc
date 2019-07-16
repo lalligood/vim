@@ -6,18 +6,17 @@
 " PERSONAL SETTINGS
 " ==================================================================
 
+" Powerline (requires: pip install powerline-status)
 let s:uname = system("uname")
 if s:uname == "Darwin\n"
     " Mac-specific options
     " Set font
     set guifont=Hack:h13
-    " Powerline (requires: pip install powerline-status)
-    set rtp+=$HOME/.local/lib/python3.7/site-packages/powerline/bindings/vim
+    set rtp+=/anaconda3/lib/python3.7/site-packages/powerline/bindings/vim
 else
     " Linux-specific options
     " Set font
     set guifont=Hack\ 10
-    " Powerline (requires: pip install powerline-status)
     set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
 endif
 set laststatus=2
@@ -25,8 +24,8 @@ set laststatus=2
 syntax on
 " Set color scheme
 colorscheme vividchalk
-" Set window size to 85 columns x 50 lines
-set columns=85 lines=50
+" Set window size to 90 columns x 50 lines
+set columns=90 lines=50
 " Turn on smart indent feature
 set smartindent
 " Set indent to 4 spaces
@@ -41,8 +40,8 @@ set number
 set wrap linebreak
 " ...but disable wrapping onto a new line
 set formatoptions-=t
-" Highlight column 80, useful when using large windows
-set colorcolumn=80
+" Highlight column 88, useful when using large windows
+set colorcolumn=88
 " Highlight the current line
 set cursorline
 " Highlight search strings

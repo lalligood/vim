@@ -10,7 +10,7 @@
 let s:uname = system("uname")
 if s:uname == "Darwin\n"
     " Mac-specific options
-    set rtp+=$HOME/.local/lib/python3.7/site-packages/powerline/bindings/vim
+    set rtp+=/anaconda3/lib/python3.7/site-packages/powerline/bindings/vim
 else
     " Linux-specific options
     set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
@@ -19,7 +19,7 @@ set laststatus=2
 " Enable syntax highlighting
 syntax on
 " Set color scheme
-colorscheme colorful256
+colorscheme vividchalk
 " Turn on smart indent feature
 set smartindent
 " Set indent to 4 spaces
@@ -34,8 +34,8 @@ set number
 set wrap linebreak
 " ...but disable wrapping onto a new line
 set formatoptions-=t
-" Highlight column 80, useful when using large windows
-set colorcolumn=85
+" Highlight column 88, useful when using large windows
+set colorcolumn=88
 " Highlight the current line
 set cursorline
 " Highlight search strings
@@ -162,5 +162,5 @@ autocmd FileType sql :iabbrev loj LEFT OUTER JOIN  ON<ESC>3hi
 iabbrev newsh #!/bin/bash<CR><CR>#
 autocmd FileType sh :iabbrev newf ()<CR># Function <CR>{<CR><CR>}<CR><ESC>5kI
 " python-centric
-iabbrev newpy #!/usr/bin/env python3<CR><CR>"""<CR>"""<CR><CR>__status__ = 'development'<CR>__version__ = '0.0.1'<CR>__maintainer__ = 'Lance Alligood'<CR>__email__ = 'lance.alligood@omicronmedia.com'<CR><CR>
+iabbrev newpy #!/usr/bin/env python3<CR><CR>"""<CR>"""<CR><CR>__status__ = 'Development'<CR>__version__ = '0.0.1'<CR>__maintainer__ = 'Lance Alligood'<CR>__email__ = 'lance.alligood@omicronmedia.com'<CR><CR>
 autocmd BufWritePre *.py execute ':Black'

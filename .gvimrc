@@ -17,7 +17,7 @@ else
     " Linux-specific options
     " Set font
     set guifont=Hack\ 10
-    set rtp+=$HOME/.local/lib/python3.6/site-packages/powerline/bindings/vim
+    set rtp+=$HOME/.local/lib/python3.7/site-packages/powerline/bindings/vim
 endif
 set laststatus=2
 " Enable syntax highlighting
@@ -44,8 +44,9 @@ set formatoptions-=t
 set colorcolumn=88
 " Highlight the current line
 set cursorline
-" Highlight search strings
+" Highlight search pattern while typing & results after pressing <Enter>.
 set hlsearch
+set incsearch
 " Enable spelling dictionary locale
 set spelllang=en_us
 " Enable ruler in bottom-right corner

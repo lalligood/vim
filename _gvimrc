@@ -37,8 +37,9 @@ set formatoptions-=t
 set colorcolumn=80
 " Highlight the current line
 set cursorline
-" Highlight search strings
+" Highlight search pattern while typing & results after pressing <Enter>.
 set hlsearch
+set incsearch
 " Enable spelling dictionary locale
 set spelllang=en_us
 " Enable ruler in bottom-right corner

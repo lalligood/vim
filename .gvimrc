@@ -6,19 +6,18 @@
 " PERSONAL SETTINGS
 " ==================================================================
 
-" Powerline (requires: pip install powerline-status)
 let s:uname = system("uname")
 if s:uname == "Darwin\n"
     " Mac-specific options
     " Set font
     set guifont=Hack:h13
-    set rtp+=/anaconda3/lib/python3.7/site-packages/powerline/bindings/vim
 else
     " Linux-specific options
     " Set font
     set guifont=Hack\ 10
-    set rtp+=$HOME/.local/lib/python3.7/site-packages/powerline/bindings/vim
 endif
+" Powerline (requires: pip install powerline-status)
+set rtp+={repository_root}/powerline/bindings/vim
 set laststatus=2
 " Enable syntax highlighting
 syntax on
